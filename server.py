@@ -9,16 +9,40 @@ app = Flask(__name__)
 
 app.secret_key = "123456"
 
+
 @app.before_request
 def session_permanent():
     session.permanent = True
 
 
-# all index starts from 0
+tutorial_data = {
+    1: {"img": "learn_img.png", "title": "Eight Principles of Yong", "practice": False,
+        "text":
+            r"""All eight categories of Chinese strokes can be shown in the character 'Yong.' These categories will be used along with the six general rules in our stroke order tutorials.
+
+You can click “Next” to start the tutorials or skip to a specific tutorial by clicking the submenu under “Learn” in the menu bar."""},
+    2: {"img": "rule1.gif", "title": "", "practice": True,
+        "text": r""""""},
+    3: {"img": "rule2.gif", "title": "", "practice": True,
+        "text": r""""""},
+    4: {"img": "rule3.gif", "title": "", "practice": True,
+        "text": r""""""},
+    5: {"img": "rule4.gif", "title": "", "practice": True,
+        "text": r""""""},
+    6: {"img": "rule5.gif", "title": "", "practice": True,
+        "text": r""""""},
+    7: {"img": "rule6.gif", "title": "", "practice": True,
+        "text": r""""""},
+}
+
+# index starts from 0
 quiz_data = {
-    0: {"correct_answer": 1, "text": "...", "answers": ["..."], "img": "..."},
-    1: {"correct_answer": 2, "text": "...", "answers": ["..."], "img": "..."},
-    2: {"correct_answer": 3, "text": "...", "answers": ["..."], "img": "..."},
+    0: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "..."},
+    1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "..."},
+    2: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "..."},
 }
 
 
@@ -33,9 +57,9 @@ def learnIntro():
     return render_template('learn_intro.html')
 
 
-@app.route('/learn/2')
-def learnLesson():
-    return render_template('learn_lesson.html')
+@app.route('/learn/<learn_id>')
+def learnLesson(learn_id=None):
+    return render_template('learn_lesson.html', data=tutorial_data[int(learn_id)], id=learn_id, rule_id=int(learn_id)-1)
 
 
 @app.route('/learn/8')
