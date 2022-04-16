@@ -1,0 +1,116 @@
+p {
+    color: black;
+    font-size: 20px;
+}
+
+h2 {
+    color: black;
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-weight: bold;
+}
+
+.navbar-nav > li {
+    float: left;
+    position: relative;
+}
+
+.navbar-light .navbar-nav .active::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-bottom: 5px solid #c91f1c;
+    content: " ";
+    bottom: -7px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
+
+#logo {
+    width: 50px;
+}
+
+#home-row,
+#learn-intro-row {
+    margin-top: 12%;
+}
+
+#home-intro {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#home-start-btn {
+    width: 45%;
+    padding: 3%;
+}
+
+#learn-intro-next-btn {
+    width: 25%;
+    padding: 2%;
+    margin: 0 auto;
+    display: block;
+}
+
+#learn-lesson-next-btn {
+    width: 10%;
+    padding: 1%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0% 1% 1% 0%;
+}
+
+#learn-lesson-row {
+    display: inline-block;
+}
+
+#rule {
+    color: #b3b3b3;
+    text-align: left;
+}
+
+#practice {
+    color: #b3b3b3;
+    margin: 0%;
+    text-align: center;
+}
+
+#congrat {
+    width: 500px;
+    height: auto;
+    margin-bottom: 3%;
+}
+
+#congrat-text {
+    text-align: center;
+}
+
+#congrat-btn-group {
+    margin-top: 3%;
+}
+
+#learn-end-next-btn,
+#learn-end-practice-btn {
+    width: 30%;
+    padding: 3%;
+}
+
