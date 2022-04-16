@@ -6,8 +6,8 @@
 
 <div id="learn-lesson-row" class="row d-flex align-items-center">
     <div class="col-md-5 text-center">
-        <h3 id="rule">Rule 1 of 6</h3>
-        <img src="/static/img/rule1.gif" alt="Top to bottom" class="img-fluid">
+        <h3 id="rule">Rule {{ rule_id }} of 6</h3>
+        <img src="/static/img/{{ data.img }}" alt="Top to bottom" class="img-fluid">
         <h2>Top to bottom</h2>
     </div>
     <div class="col-md-6">
@@ -15,6 +15,6 @@
         <img src="/static/img/drawing_panel.png" alt="Practice drawing panel" class="img-fluid">
     </div>
 </div>
-<button id="learn-lesson-next-btn">Next</button>
+<button id="learn-lesson-next-btn" data-current-id="{{ id }}">Next</button>
 
 {% endblock %}

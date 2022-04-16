@@ -4,7 +4,7 @@ $(document).ready(function() {
     });
 
     $("#learn-lesson-next-btn").click(function() {
-        window.location.href = "/learn/8"
+        window.location.href = "/learn/" + (parseInt($(this).attr("data-current-id")) + 1)
     });
 
     $("#learn-end-practice-btn").click(function() {
