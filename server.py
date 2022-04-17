@@ -21,17 +21,17 @@ tutorial_data = {
             r"""All eight categories of Chinese strokes can be shown in the character 'Yong.' These categories will be used along with the six general rules in our stroke order tutorials.
 
 You can click “Next” to start the tutorials or skip to a specific tutorial by clicking the submenu under “Learn” in the menu bar."""},
-    2: {"img": "rule1.gif", "title": "", "practice": True,
+    2: {"img": "rule1.gif", "title": "", "practice": True, "rule_name": "Top to bottom",
         "text": r""""""},
-    3: {"img": "rule2.gif", "title": "", "practice": True,
+    3: {"img": "rule2.gif", "title": "", "practice": True, "rule_name": "Left to right",
         "text": r""""""},
-    4: {"img": "rule3.gif", "title": "", "practice": True,
+    4: {"img": "rule3.gif", "title": "", "practice": True, "rule_name": "First horizontal,<br>then vertical",
         "text": r""""""},
-    5: {"img": "rule4.gif", "title": "", "practice": True,
+    5: {"img": "rule4.gif", "title": "", "practice": True, "rule_name": "First right-to-left diagonals,<br>then left-to-right diagonals",
         "text": r""""""},
-    6: {"img": "rule5.gif", "title": "", "practice": True,
+    6: {"img": "rule5.gif", "title": "", "practice": True, "rule_name": "Center comes first in vertically<br>symmetrical characters",
         "text": r""""""},
-    7: {"img": "rule6.gif", "title": "", "practice": True,
+    7: {"img": "rule6.gif", "title": "", "practice": True, "rule_name": "Move from outside to inside<br>and close frames last",
         "text": r""""""},
 }
 
