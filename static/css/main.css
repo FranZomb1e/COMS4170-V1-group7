@@ -73,10 +73,9 @@ button {
 #learn-lesson-next-btn {
     width: 10%;
     padding: 1%;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 0% 1% 1% 0%;
+    font-size: 3vmin;
+    float: right;
+    margin: 1.5% 0% 1% 0%;
 }
 
 #learn-lesson-row {
