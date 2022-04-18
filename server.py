@@ -14,7 +14,7 @@ app.secret_key = "123456"
 def session_permanent():
     session.permanent = True
 
-
+total = 0
 tutorial_data = {
     1: {"img": "learn_img.png", "title": "Eight Principles of Yong", "practice": False,
         "text":
@@ -35,13 +35,13 @@ You can click “Next” to start the tutorials or skip to a specific tutorial b
         "text": r""""""},
 }
 
-# index starts from 0
+# index starts from 1
 quiz_data = {
-    0: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
+    1: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
         "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png"},
-    1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
+    2: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
         "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png"},
-    2: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
+    3: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
         "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png"},
 }
 
@@ -77,7 +77,10 @@ def quiz(quiz_id=None):
 
 @app.route('/quiz/4')
 def quizEnd():
-    return render_template('quiz_end.html')
+    global total
+    res = total
+    total = 0
+    return render_template('quiz_end.html', correct_cnt = int(res))
 
 # AJAX routes
 
@@ -118,6 +121,13 @@ def save_user_data():
 @app.route("/get_user_data", methods=['GET'])
 def get_user_data():
     return json.dumps({"err": "ok", "user_data": session.get('user_data')})
+
+@app.route("/update_score", methods=['POST'])
+def update_score():
+    global total
+    score = int(request.json["score"])
+    total += score
+    return json.dumps({"err": "ok"})
 
 
 if __name__ == '__main__':
