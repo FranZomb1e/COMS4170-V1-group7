@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/quiz.js') }}"></script>
+
+<div id="quiz-intro-row" class="row d-flex align-items-center">
+    <div class="col-md-5">
+        <img src="/static/img/learn_img.png" alt="Chinese character 'Yong'" class="img-fluid">
+    </div>
+    <div class="col-md-7">
+        <h3>Eight Principles of Yong</h3>
+        <p>Feel like you have the stroke order rules down?</p>
+        <p>Click 'Next' to begin your quiz!</p>
+        <button id="quiz-intro-next-btn">Next</button>
+    </div>
+</div>
+
+{% endblock %}

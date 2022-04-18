@@ -37,12 +37,12 @@ You can click “Next” to start the tutorials or skip to a specific tutorial b
 
 # index starts from 0
 quiz_data = {
-    0: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
-        "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "..."},
-    1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
-        "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "..."},
-    2: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
-        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "..."},
+    1: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png"},
+    2: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png"},
+    3: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png"},
 }
 
 
@@ -60,6 +60,19 @@ def learnIntro():
 @app.route('/learn/<learn_id>')
 def learnLesson(learn_id=None):
     return render_template('learn_lesson.html', data=tutorial_data[int(learn_id)], id=learn_id, rule_id=int(learn_id)-1)
+
+@app.route('/quiz')
+def quizIntro():
+    return render_template('quiz_intro.html')
+
+
+@app.route('/quiz/<quiz_id>')
+def quiz(quiz_id=None):
+    return render_template('quiz_question.html', data=quiz_data[int(quiz_id)], id=quiz_id)
+
+@app.route('/quiz/4')
+def quizEnd():
+    return render_template('quiz_end.html')
 
 
 @app.route('/learn/8')
@@ -98,8 +111,7 @@ def check_answers():
 @app.route("/save_user_data", methods=['POST'])
 def save_user_data():
     user_data = request.json["user_data"]
-    for k, v in user_data.items():
-        session["user_data"][k] = v
+    session["user_data"] = user_data
     return json.dumps({"err": "ok"})
 
 
