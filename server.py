@@ -98,7 +98,8 @@ def check_answers():
 @app.route("/save_user_data", methods=['POST'])
 def save_user_data():
     user_data = request.json["user_data"]
-    session["user_data"] = user_data
+    for k, v in user_data.items():
+        session["user_data"][k] = v
     return json.dumps({"err": "ok"})
 
 

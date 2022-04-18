@@ -1,30 +1,22 @@
-let global_user_quiz_choices = [-1, -1, -1];
-let global_user_current_page = "";
-let global_redirected = false;
 
 function save_current_page(current_page) {
-    global_user_current_page = current_page
-    save_user_data({"quiz_choices": global_user_quiz_choices, "current_page": global_user_current_page}, function (r) {
+    save_user_data({"current_page": current_page}, function (r) {
         console.log("Save current page okay.", r);
     })
 }
 
 function save_quiz_choices(quiz_choices) {
-    global_user_quiz_choices = quiz_choices
-    save_user_data({"quiz_choices": global_user_quiz_choices, "current_page": global_user_current_page}, function (r) {
-        console.log("Save current page okay.", r);
+    save_user_data({"quiz_choices": quiz_choices}, function (r) {
+        console.log("Save quiz choices okay.", r);
     })
 }
 
 function redirect_if_not_new_user() {
-    if (!global_redirected) {
-        global_redirected = true;
-        get_user_data(function (result) {
-            if (result["user_data"]["current_page"]) {
-                window.location.href = result["user_data"]["current_page"];
-            }
-        })
-    }
+    get_user_data(function (result) {
+        if (result["user_data"]["current_page"]) {
+            window.location.href = result["user_data"]["current_page"];
+        }
+    });
 }
 
 function check_answer(quiz_id, quiz_choice, on_success) {
