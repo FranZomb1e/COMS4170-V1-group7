@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
-    <script type="text/javascript" src="{{ url_for('static', filename = 'js/layout.js') }}"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/layout.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/data.js') }}"></script>
     <title>Simplified Chinese Stroke Order</title>
   </head>
 
@@ -30,9 +31,6 @@
                   <a href="/learn/6" class="dropdown-item">Center comes first in vertically symmetrical characters</a>
                   <a href="/learn/7" class="dropdown-item">Move from outside to inside and close frames last</a>
               </div>
-              <li id="quiz" class="nav-item active">
-                <a href="/quiz" class="nav-link">Quiz</a>
-              </li>
           </li>
           </ul>
         </div>
