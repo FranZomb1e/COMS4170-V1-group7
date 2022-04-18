@@ -68,7 +68,7 @@ def learnEnd():
 
 @app.route('/quiz')
 def quizIntro():
-    return render_template('quiz_intro.html')
+    return render_template('quiz_question.html', data=quiz_data[int(1)], id=1)
 
 
 @app.route('/quiz/<quiz_id>')
