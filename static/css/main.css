@@ -44,6 +44,11 @@ button {
     margin-top: 0;
  }
 
+.drawing-board-container {
+    height: 100%;
+    display: flex;
+}
+
 #logo {
     width: 50px;
 }
@@ -111,11 +116,6 @@ button {
 #learn-end-practice-btn {
     width: 30%;
     padding: 3%;
-}
-
-.drawing-board-container {
-    height: 100%;
-    display: flex;
 }
 
 #clear {

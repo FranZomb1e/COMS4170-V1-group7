@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // create drawing canvas for lessons
     if (window.location.pathname != "/learn/1" && window.location.pathname != "/learn/8") {
         const canvas = document.getElementById('drawing-board');
         const ctx = canvas.getContext('2d');
@@ -41,7 +42,10 @@ $(document).ready(function() {
         });
     }
 
+    // save the current page that the user is on
     // save_current_page(window.location.pathname)
+
+    // direct user to learn lesson page
     $("#learn-intro-next-btn").click(function() {
         window.location.href = "/learn/2";
     });
@@ -50,10 +54,12 @@ $(document).ready(function() {
         window.location.href = "/learn/" + (parseInt($(this).attr("data-current-id")) + 1);
     });
 
+    // direct user to learn intro page
     $("#learn-end-practice-btn").click(function() {
         window.location.href = "/learn/1";
     });
 
+    // direct user to quiz question page
     $("#learn-end-next-btn").click(function() {
         window.location.href = "/quiz/1";
     });
