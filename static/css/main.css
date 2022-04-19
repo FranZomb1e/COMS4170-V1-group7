@@ -49,6 +49,16 @@ button {
     display: flex;
 }
 
+.quiz-answers-rules {
+    font-size: 19px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.quiz_answer_imgs {
+    display: block;
+}
+
 #logo {
     width: 50px;
 }
@@ -106,6 +116,7 @@ button {
 
 #congrat-text {
     text-align: center;
+    font-weight: bold;
 }
 
 #congrat-btn-group {
@@ -128,4 +139,8 @@ button {
     border: 5px solid black;
     background: url('/static/img/grid_background.png');
     background-size: 100% 100%;
+}
+
+#quiz-answer-container {
+    margin-top: 3%;
 }
