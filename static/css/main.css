@@ -113,3 +113,19 @@ button {
     padding: 3%;
 }
 
+.drawing-board-container {
+    height: 100%;
+    display: flex;
+}
+
+#clear {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+}
+
+#drawing-board {
+    border: 5px solid black;
+    background: url('/static/img/grid_background.png');
+    background-size: 100% 100%;
+}

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var active = window.location.pathname
+    let active = window.location.pathname
 
     if (active.indexOf("/learn") > -1) {
         clearActive()

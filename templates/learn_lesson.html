@@ -14,7 +14,12 @@
     </div>
     <div class="col-md-6">
         <h2 id="practice">Practice here</h2>
-        <img src="/static/img/drawing_panel.png" alt="Practice drawing panel" class="img-fluid">
+        <section class="drawing-board-container">
+            <div class="drawing-board">
+                <input id="clear" type="image" src="/static/img/reset.png"/>
+                <canvas id="drawing-board"></canvas>
+            </div>
+        </section>
     </div>
 </div>
 <button id="learn-lesson-next-btn" data-current-id="{{ id }}">Next</button>
