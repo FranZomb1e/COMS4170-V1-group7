@@ -21,6 +21,11 @@ button {
     border-radius: 10px;
 }
 
+button:hover {
+    background-color: rgb(187, 187, 187);
+    cursor: pointer;
+}
+
 .nav-link {
     font-weight: bold;
 }
