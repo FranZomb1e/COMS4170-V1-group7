@@ -59,6 +59,12 @@ button {
     display: block;
 }
 
+.quiz-buttons {
+    width: 45%;
+    padding: 3%;
+    margin-top: 4%;
+}
+
 #logo {
     width: 50px;
 }
@@ -85,7 +91,8 @@ button {
     display: block;
 }
 
-#learn-lesson-next-btn {
+#learn-lesson-next-btn,
+#quiz-next-btn {
     width: 10%;
     padding: 1%;
     font-size: 3vmin;
@@ -143,4 +150,17 @@ button {
 
 #quiz-answer-container {
     margin-top: 3%;
+}
+
+#question {
+    font-weight: normal;
+}
+
+#quiz-questions {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#quiz-imgs {
+    width: 20%;
 }
