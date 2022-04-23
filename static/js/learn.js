@@ -43,7 +43,7 @@ $(document).ready(function() {
     }
 
     // save the current page that the user is on
-    // save_current_page(window.location.pathname)
+    save_current_page(window.location.pathname)
 
     // direct user to learn lesson page
     $("#learn-intro-next-btn").click(function() {
