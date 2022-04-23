@@ -5,14 +5,43 @@ function save_current_page(current_page) {
     })
 }
 
-function save_quiz_choices(quiz_choices) {
-    save_user_data({"quiz_choices": quiz_choices}, function (r) {
+function save_quiz_choice(id, quiz_choice) {
+    let field = "quiz_choice_" + id
+    let user_data = {}
+    user_data[field] = quiz_choice
+    save_user_data(user_data, function (r) {
         console.log("Save quiz choices okay.", r);
+    })
+}
+
+function check_quiz_from_user_data(on_success, on_fail) {
+    get_user_data(function (result) {
+        let quiz_choices = [];
+        for (let i = 1; i <= 3; i++) {
+            let field = "quiz_choice_" + i;
+            if (!result["user_data"]) {
+                on_fail();
+                return;
+            }
+            if (!(result["user_data"][field])) {
+                console.log("no quiz choice for", i);
+                on_fail();
+                return;
+            }
+            quiz_choices.push((result["user_data"][field]));
+        }
+        check_answers(quiz_choices, function (result) {
+            console.log("check quiz choices", result);
+            on_success(result["correct_cnt"]);
+        });
     })
 }
 
 function redirect_if_not_new_user() {
     get_user_data(function (result) {
+        if (!result["user_data"]) {
+            return;
+        }
         if (result["user_data"]["current_page"]) {
             window.location.href = result["user_data"]["current_page"];
         }
