@@ -14,7 +14,7 @@ app.secret_key = "123456"
 def session_permanent():
     session.permanent = True
 
-total = 0
+
 tutorial_data = {
     1: {"img": "learn_img.png", "title": "Eight Principles of Yong", "practice": False,
         "text":
@@ -35,13 +35,13 @@ You can click “Next” to start the tutorials or skip to a specific tutorial b
         "text": r""""""},
 }
 
-# index starts from 1
+# index starts from 0, do not change this part... you can add additional fields if you want
 quiz_data = {
-    1: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
-        "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png"},
-    2: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
-        "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png"},
-    3: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.",
+    0: {"correct_answer": 1, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png", "id": 1},
+    1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
+        "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png", "id": 2},
+    2: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.", "id": 3,
         "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png"},
 }
 
@@ -68,19 +68,16 @@ def learnEnd():
 
 @app.route('/quiz')
 def quizIntro():
-    return render_template('quiz_question.html', data=quiz_data[int(1)], id=1)
+    return render_template('quiz_question.html', data=quiz_data[int(0)], id=1)
 
 
 @app.route('/quiz/<quiz_id>')
 def quiz(quiz_id=None):
-    return render_template('quiz_question.html', data=quiz_data[int(quiz_id)], id=quiz_id)
+    return render_template('quiz_question.html', data=quiz_data[int(quiz_id)-1], id=quiz_id)
 
 @app.route('/quiz/4')
 def quizEnd():
-    global total
-    res = total
-    total = 0
-    return render_template('quiz_end.html', correct_cnt = int(res))
+    return render_template('quiz_end.html')
 
 # AJAX routes
 
@@ -102,7 +99,7 @@ def check_answers():
     correct_cnt = 0
     wrong_id = []
     for i in range(0, 3):
-        if quiz_data[i]["correct_answer"] == quiz_choices[i]:
+        if quiz_data[i]["correct_answer"] == int(quiz_choices[i]):
             correct_cnt += 1
         else:
             wrong_id.append(i)
@@ -113,6 +110,8 @@ def check_answers():
 @app.route("/save_user_data", methods=['POST'])
 def save_user_data():
     user_data = request.json["user_data"]
+    if "user_data" not in session:
+        session["user_data"] = {}
     for k, v in user_data.items():
         session["user_data"][k] = v
     return json.dumps({"err": "ok"})
