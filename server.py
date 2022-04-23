@@ -121,13 +121,6 @@ def save_user_data():
 def get_user_data():
     return json.dumps({"err": "ok", "user_data": session.get('user_data')})
 
-@app.route("/update_score", methods=['POST'])
-def update_score():
-    global total
-    score = int(request.json["score"])
-    total += score
-    return json.dumps({"err": "ok"})
-
 
 if __name__ == '__main__':
     app.run(debug=True)
