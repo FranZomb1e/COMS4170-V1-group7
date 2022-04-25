@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/quiz1.js') }}"></script>
+
+<div class="text-center">
+    <img id="quiz-imgs" src="/static/img/{{ data.img }}" alt="Character" class="img-fluid">
+    {% autoescape false %}
+    <p id="quiz-questions"><span id="question">Question {{ id }} of 3 </span>{{ data.text }}</p>
+    {% endautoescape %}
+</div>
+
+<div id="quiz-lesson-row" class="row d-flex align-items-center">
+    <div class="col-md-6 text-center">
+        {% autoescape false %}
+        <button class="quiz-buttons" id="answer1" data-current-id="{{ id }}">{{data.answers[0]}}</button>
+        <br>
+        <button class="quiz-buttons" id="answer2" data-current-id="{{ id }}">{{data.answers[1]}}</button>
+        {% endautoescape %}
+    </div>
+    <div class="col-md-6 text-center">
+        {% autoescape false %}
+        <button class="quiz-buttons" id="answer3" data-current-id="{{ id }}">{{data.answers[2]}}</button>
+        <br>
+        <button class="quiz-buttons" id="answer4" data-current-id="{{ id }}">{{data.answers[3]}}</button>
+        {% endautoescape %}
+    </div>
+</div>
+<button id="quiz-next-btn" data-current-id="{{ id }}">Next</button>
+
+{% endblock %}
