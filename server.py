@@ -41,8 +41,11 @@ quiz_data = {
         "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png", "id": 1},
     1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
         "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png", "id": 2},
-    2: {"correct_answer": 3, "text": "Please select the correct stroke order for the character above.", "id": 3,
-        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png"},
+    2: {"correct_answer": 3, "text": "Drag the strokes into the correct order for the character above.", "id": 3,
+        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png", 
+        "stroke_image_1":"quiz_question_3_stroke_1.png", "stroke_image_2":"quiz_question_3_stroke_2.png", 
+        "stroke_image_3":"quiz_question_3_stroke_3.png", "stroke_image_4":"quiz_question_3_stroke_4.png",
+        "stroke_image_5":"quiz_question_3_stroke_5.png", "stroke_image_6":"quiz_question_3_stroke_6.png"},
 }
 
 
@@ -68,12 +71,16 @@ def learnEnd():
 
 @app.route('/quiz')
 def quizIntro():
-    return render_template('quiz_question.html', data=quiz_data[int(0)], id=1)
+    return render_template('quiz_question_type1.html', data=quiz_data[int(0)], id=1)
 
 
 @app.route('/quiz/<quiz_id>')
 def quiz(quiz_id=None):
-    return render_template('quiz_question.html', data=quiz_data[int(quiz_id)-1], id=quiz_id)
+    return render_template('quiz_question_type1.html', data=quiz_data[int(quiz_id)-1], id=quiz_id)
+
+@app.route('/quiz/3')
+def quiz_drag():
+    return render_template('quiz_question_type2.html', data=quiz_data[2])
 
 @app.route('/quiz/4')
 def quizEnd():
