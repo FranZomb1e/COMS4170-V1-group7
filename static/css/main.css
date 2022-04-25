@@ -70,6 +70,24 @@ button:hover {
     margin-top: 4%;
 }
 
+.answer-field{
+    font-size: 20px;
+    font-weight: bold;
+    width: 45%;
+    margin-top: 4%;
+    padding: 3%;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.stroke-img{
+    width: 15%;
+    height: 15%;
+}
+.stroke{
+    z-index: 10;
+}
+
 #logo {
     width: 50px;
 }
