@@ -88,6 +88,11 @@ button:hover {
     z-index: 10;
 }
 
+.quiz_result{
+    color:red;
+    font-weight: bolder;
+}
+
 #logo {
     width: 50px;
 }

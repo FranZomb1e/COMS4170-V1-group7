@@ -1,10 +1,15 @@
 $(document).ready(function() {
     save_current_page(window.location.pathname);
     check_quiz_from_user_data(function(result) {
-        $('#score__').text(result)
+        $('#score__').text(result["correct_cnt"])
+        for (const element of result["wrong_id"]){
+            let tag = '#result_' + element
+            $(tag).text("Wrong")
+        }
     }, function() {
 
     })
+    
 
     $("#quiz-intro-next-btn").click(function() {
         window.location.href = "/quiz/1"

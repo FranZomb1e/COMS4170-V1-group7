@@ -32,7 +32,7 @@ function check_quiz_from_user_data(on_success, on_fail) {
         }
         check_answers(quiz_choices, function (result) {
             console.log("check quiz choices", result);
-            on_success(result["correct_cnt"]);
+            on_success(result);
         });
     })
 }
