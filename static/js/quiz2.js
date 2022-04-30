@@ -95,11 +95,16 @@ $(document).ready(function() {
         }
     })
 
-    
-    
 
     $('.stroke').draggable( {
         start: function(event,ui){
         }
     })
+    
+    $("#reset").click(function () {
+    $(".stroke").animate({
+        top: "0px",
+        left: "0px"
+        });
+    });
 })
