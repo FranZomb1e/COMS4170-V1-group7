@@ -73,17 +73,27 @@ button:hover {
 .answer-field{
     font-size: 20px;
     font-weight: bold;
-    width: 45%;
     margin-top: 4%;
-    padding: 3%;
+    padding: 7%;
     border: 1px solid gray;
     border-radius: 10px;
 }
 
-.stroke-img{
-    width: 15%;
-    height: 15%;
+.ui-droppable-hover{
+    color: rgb(255, 255, 255); 
+    background: #ff2f2f; 
+    box-shadow: 0 0 100px #ff2f2f; 
 }
+
+.dropped{
+    background-color: #921a1a;
+}
+
+.stroke-img{
+    width: 50%;
+    height: 50%;
+}
+
 .stroke{
     z-index: 10;
 }
@@ -92,6 +102,7 @@ button:hover {
     color:red;
     font-weight: bolder;
 }
+
 
 #logo {
     width: 50px;
