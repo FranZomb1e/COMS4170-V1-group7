@@ -16,6 +16,7 @@ function save_quiz_choice(id, quiz_choice) {
 
 function check_quiz_from_user_data(on_success, on_fail) {
     get_user_data(function (result) {
+        console.log(result);
         let quiz_choices = [];
         for (let i = 1; i <= 3; i++) {
             let field = "quiz_choice_" + i;

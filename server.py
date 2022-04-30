@@ -41,8 +41,8 @@ quiz_data = {
         "answers": ["2, 1, 4, 3", "4, 1, 3, 2", "3, 4, 1, 2", "4, 3, 1, 2"], "img": "quiz_question_1.png", "id": 1},
     1: {"correct_answer": 2, "text": "Please select the correct stroke order for the character above.",
         "answers": ["2, 3, 5, 1, 4", "4, 3, 5, 1, 2", "4, 1, 3, 2, 5", "1, 2, 5, 4, 3"], "img": "quiz_question_2.png", "id": 2},
-    2: {"correct_answer": 3, "text": "Drag the strokes into the correct order for the character above.", "id": 3,
-        "answers": ["6, 1, 4, 2, 3, 5", "4, 2, 6, 3, 5, 1", "4, 2, 3, 5, 6, 1", "6, 4, 2, 1, 3, 5"], "img": "quiz_question_3.png",
+    2: {"correct_answer": "6,4,2,1,3,5", "text": "Drag the strokes into the correct order for the character above.", "id": 3,
+        "answers": [], "img": "quiz_question_3.png",
         "stroke_image_1":"quiz_question_3_stroke_1.png", "stroke_image_2":"quiz_question_3_stroke_2.png",
         "stroke_image_3":"quiz_question_3_stroke_3.png", "stroke_image_4":"quiz_question_3_stroke_4.png",
         "stroke_image_5":"quiz_question_3_stroke_5.png", "stroke_image_6":"quiz_question_3_stroke_6.png"},
@@ -88,25 +88,18 @@ def quizEnd():
 
 # AJAX routes
 
-@app.route("/check_answer", methods=['POST'])
-def check_answer():
-    quiz_id = request.json["quiz_id"]
-    quiz_choice = request.json["quiz_choice"]
-    quiz_id = int(quiz_id)
-    quiz_choice = int(quiz_choice)
-    if quiz_id not in quiz_data:
-        return json.dumps({"err": "quiz does not exist"})
-    else:
-        return json.dumps({"err": "ok", "correct": quiz_data[quiz_id]["correct_answer"] == quiz_choice})
-
-
 @app.route("/check_answers", methods=['POST'])
 def check_answers():
     quiz_choices = request.json["quiz_choices"]
     correct_cnt = 0
     wrong_id = []
-    for i in range(0, 3):
+    for i in range(0, 2):
         if quiz_data[i]["correct_answer"] == int(quiz_choices[i]):
+            correct_cnt += 1
+        else:
+            wrong_id.append(i)
+    for i in range(2, 3):
+        if quiz_data[i]["correct_answer"] == quiz_choices[i]:
             correct_cnt += 1
         else:
             wrong_id.append(i)

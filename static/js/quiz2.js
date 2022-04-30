@@ -4,22 +4,17 @@ function getUserAnswer( ui, position){
 
     user_answers[position - 1] = ui.draggable[0].getAttribute("id").split("_")[1];
     console.log(user_answers)
+    save_quiz_choice("3",getUserAnswers());
 }
 
 function getUserAnswers( ){
     let final_answers = "";
     for( let i = 0; i < user_answers.length - 1; i++){
-        final_answers = final_answers + user_answers[i] + ", ";
+        final_answers = final_answers + user_answers[i] + ",";
     }
     final_answers = final_answers + user_answers[5];
 
-    if ( final_answers == $('.stroke').attr('correct_position') )
-    {
-        return "3";
-    }
-    else{
-        return "0";
-    }
+    return final_answers
 }
 
 
@@ -42,8 +37,7 @@ $(document).ready(function() {
 
 
     $("#quiz-next-btn").click(function() {
-        save_quiz_choice($(this).attr("data-current-id"), getUserAnswers() )
-        window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1)
+        window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
     });
 
     $('#position1').droppable({
