@@ -101,7 +101,7 @@ $(document).ready(function() {
         }
     })
     
-    $("#reset").click(function () {
+    $("#reset-btn").click(function () {
     $(".stroke").animate({
         top: "0px",
         left: "0px"
