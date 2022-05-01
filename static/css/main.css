@@ -120,14 +120,25 @@ button:hover {
     font-weight: bolder;
 }
 
-
 #logo {
     width: 50px;
 }
 
+#home-title {
+    margin-top: 5%;
+    font-size: 50px;
+    font-family: 'Aclonica', sans-serif;;
+    text-align: center;
+}
+
 #home-row,
 #learn-intro-row {
-    margin-top: 12%;
+    margin-top: 4%;
+}
+
+#learn-intro-title {
+    margin-top: 5%;
+    text-align: center;
 }
 
 #home-intro {
@@ -160,9 +171,13 @@ button:hover {
     display: inline-block;
 }
 
-#rule {
+#rule-num {
     color: #b3b3b3;
-    text-align: left;
+    text-align: center;
+}
+
+#rule-name {
+    color: black;
 }
 
 #practice {
@@ -202,6 +217,10 @@ button:hover {
     border: 5px solid black;
     background: url('/static/img/grid_background.png');
     background-size: 100% 100%;
+}
+
+#drawing-board:active { 
+    cursor: crosshair;
 }
 
 #quiz-answer-container {
