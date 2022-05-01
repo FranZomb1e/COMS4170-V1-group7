@@ -7,7 +7,8 @@
 <div class="text-center">
     <img id="quiz-imgs" src="/static/img/{{ data.img }}" alt="Character" class="img-fluid">
     {% autoescape false %}
-    <p id="quiz-questions"><span id="question">Question {{ id }} of 3 </span>{{ data.text }}</p>
+    <h3 id="quiz-questions"> Question {{ id }} of 3 </h3>
+    <h3 id="question-description"> {{data.text}} </h3>
     {% endautoescape %}
 </div>
 
