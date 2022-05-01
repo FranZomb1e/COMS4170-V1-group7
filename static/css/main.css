@@ -183,12 +183,12 @@ button:hover {
     display: inline-block;
 }
 
-#rule-num {
+#rule-num, #quiz-questions {
     color: #b3b3b3;
     text-align: center;
 }
 
-#rule-name {
+#rule-name, #question-description {
     color: rgb(63, 63, 63);
 }
 
@@ -245,15 +245,6 @@ button:hover {
 
 #quiz-answer-container {
     margin-top: 3%;
-}
-
-#question {
-    font-weight: normal;
-}
-
-#quiz-questions {
-    font-size: 23px;
-    font-weight: bold;
 }
 
 #quiz-imgs {
