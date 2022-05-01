@@ -15,14 +15,16 @@ h3 {
 }
 
 button {
+    color: white;
     font-size: 20px;
     font-weight: bold;
-    border: 1px solid gray;
+    background-color: #c91f1c;
+    border: none;
     border-radius: 10px;
 }
 
 button:hover {
-    background-color: rgb(187, 187, 187);
+    background-color: #851513;
     cursor: pointer;
 }
 
@@ -65,9 +67,24 @@ button:hover {
 }
 
 .quiz-buttons {
+    color: black;
+    background-color: white;
     width: 45%;
     padding: 3%;
     margin-top: 4%;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.quiz-buttons.selected {
+    background-color: #851513;
+    color: white;
+}
+
+.quiz-buttons:hover {
+    color: white;
+    border-color: #851513;
+    background-color: #851513;
 }
 
 .answer-field{
@@ -80,9 +97,9 @@ button:hover {
 }
 
 .ui-droppable-hover{
-    color: rgb(255, 255, 255); 
-    background: #ff2f2f; 
-    box-shadow: 0 0 100px #ff2f2f; 
+    color: white;
+    border-color: #851513;
+    background-color: #851513;
 }
 
 .dropped{

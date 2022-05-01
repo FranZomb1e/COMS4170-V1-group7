@@ -10,6 +10,13 @@ $(document).ready(function() {
 
     })
     
+    $(".quiz-buttons").on('click', function(){
+        $(".quiz-buttons").removeClass("selected");
+
+        if (this.id != "quiz-next-btn") {
+            $(this).addClass("selected");
+        }
+    });
 
     $("#quiz-intro-next-btn").click(function() {
         window.location.href = "/quiz/1"
