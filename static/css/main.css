@@ -28,6 +28,10 @@ button:hover {
     cursor: pointer;
 }
 
+.navbar {
+    background-color: #fffbbd;
+}
+
 .nav-link {
     font-weight: bold;
 }
