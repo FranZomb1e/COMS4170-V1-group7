@@ -34,6 +34,7 @@ $(document).ready(function() {
         });
     
     });
+
     $("#answer2").click(function() {
         save_quiz_choice($(this).attr("data-current-id"), "1")
         $("#quiz-next-btn").click(function() {
@@ -41,6 +42,7 @@ $(document).ready(function() {
         });
     
     });
+
     $("#answer3").click(function() {
         save_quiz_choice($(this).attr("data-current-id"), "2")
         $("#quiz-next-btn").click(function() {
@@ -48,11 +50,19 @@ $(document).ready(function() {
         });
     
     });
+
     $("#answer4").click(function() {
         save_quiz_choice($(this).attr("data-current-id"), "3")
         $("#quiz-next-btn").click(function() {
             window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1)
         });
-    
+    });
+
+    $("#quiz-end-home-btn").click(function() {
+        window.location.href = "/?redirect=false"
+    });
+
+    $("#quiz-end-quiz-btn").click(function() {
+        window.location.href = "/quiz/1"
     });
 })

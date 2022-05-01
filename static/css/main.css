@@ -197,25 +197,28 @@ button:hover {
 #congrat {
     width: 500px;
     height: auto;
-    margin-bottom: 3%;
 }
 
 #congrat-text {
     color: rgb(63, 63, 63);
     text-align: center;
     font-weight: bold;
+    margin-bottom: 3%;
 }
 
 #congrat-des {
     color: rgb(104, 104, 104);
 }
 
-#congrat-btn-group {
+#congrat-btn-group,
+#quiz-btn-group {
     margin-top: 3%;
 }
 
 #learn-end-next-btn,
-#learn-end-practice-btn {
+#learn-end-practice-btn,
+#quiz-end-home-btn,
+#quiz-end-quiz-btn {
     width: 30%;
     padding: 3%;
 }
