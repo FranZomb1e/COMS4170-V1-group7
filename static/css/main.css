@@ -120,15 +120,27 @@ button:hover {
     font-weight: bolder;
 }
 
+.home-des,
+.rule-intro-des {
+    color: rgb(104, 104, 104);
+}
+
 #logo {
     width: 50px;
 }
 
 #home-title {
+    color: black;
     margin-top: 5%;
     font-size: 50px;
     font-family: 'Aclonica', sans-serif;;
     text-align: center;
+}
+
+#home-intro {
+    color: rgb(63, 63, 63);
+    font-weight: bold;
+    font-size: 25px;
 }
 
 #home-row,
@@ -137,13 +149,9 @@ button:hover {
 }
 
 #learn-intro-title {
+    color: rgb(63, 63, 63);
     margin-top: 5%;
     text-align: center;
-}
-
-#home-intro {
-    font-weight: bold;
-    font-size: 25px;
 }
 
 #home-start-btn {
@@ -177,7 +185,7 @@ button:hover {
 }
 
 #rule-name {
-    color: black;
+    color: rgb(63, 63, 63);
 }
 
 #practice {
@@ -193,8 +201,13 @@ button:hover {
 }
 
 #congrat-text {
+    color: rgb(63, 63, 63);
     text-align: center;
     font-weight: bold;
+}
+
+#congrat-des {
+    color: rgb(104, 104, 104);
 }
 
 #congrat-btn-group {
