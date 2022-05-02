@@ -1,5 +1,4 @@
 let user_answers = [0,0,0,0,0,0];
-
 function getUserAnswer( ui, position){
 
     user_answers[position - 1] = ui.draggable[0].getAttribute("id").split("_")[1];
@@ -26,6 +25,11 @@ $(document).ready(function() {
 
     })
 
+    $('.stroke').draggable( {
+        start: function(event,ui){
+        }
+    })
+
     $("#quiz-intro-next-btn").click(function() {
         window.location.href = "/quiz/1"
     });
@@ -36,20 +40,16 @@ $(document).ready(function() {
     });
 
 
-    $("#quiz-next-btn").click(function() {
-        window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
-    });
-
     $('#position1').droppable({
         accept: ".stroke",
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 1)
-            $('.stroke').draggable({
-                start: function (event, ui) {
-                }
-            })
+            getUserAnswer(ui, 1);
+            ui.draggable.draggable({disabled: true});
+            $('#stroke_1').click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
     
@@ -58,7 +58,11 @@ $(document).ready(function() {
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 2)
+            getUserAnswer(ui, 2);
+            ui.draggable.draggable({disabled: true});
+            $("#quiz-next-btn").click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
     $('#position3').droppable({
@@ -66,7 +70,11 @@ $(document).ready(function() {
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 3)
+            getUserAnswer(ui, 3);
+            ui.draggable.draggable({disabled: true});
+            $("#quiz-next-btn").click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
     $('#position4').droppable({
@@ -74,7 +82,11 @@ $(document).ready(function() {
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 4)
+            getUserAnswer(ui, 4);
+            ui.draggable.draggable({disabled: true});
+            $("#quiz-next-btn").click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
     $('#position5').droppable({
@@ -82,7 +94,11 @@ $(document).ready(function() {
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 5)
+            getUserAnswer(ui, 5);
+            ui.draggable.draggable({disabled: true});
+            $("#quiz-next-btn").click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
 
@@ -91,20 +107,20 @@ $(document).ready(function() {
         over: function (event, ui) {
         },
         drop: function (event, ui) {
-            getUserAnswer(ui, 6)
-        }
-    })
-
-
-    $('.stroke').draggable( {
-        start: function(event,ui){
+            getUserAnswer(ui, 6);
+            ui.draggable.draggable({disabled: true});
+            $("#quiz-next-btn").click(function() {
+                window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
+            });
         }
     })
     
     $("#reset-btn").click(function () {
-    $(".stroke").animate({
-        top: "0px",
-        left: "0px"
+        user_answers = [0,0,0,0,0,0];
+        $(".stroke").animate({
+            top: "0px",
+            left: "0px"
         });
-    });
+        $('.stroke').draggable('enable')
+    }); 
 })
