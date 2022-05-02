@@ -1,7 +1,7 @@
 
 function save_current_page(current_page) {
     save_user_data({"current_page": current_page}, function (r) {
-        console.log("Save current page okay.", r);
+        console.log("Save current page okay.", r, current_page);
     })
 }
 
@@ -37,14 +37,22 @@ function check_quiz_from_user_data(on_success, on_fail) {
         });
     })
 }
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
-function redirect_if_not_new_user() {
+function redirect_if_not_new_user(on_not_redirect) {
     get_user_data(function (result) {
         if (!result["user_data"]) {
+            on_not_redirect();
             return;
         }
         if (result["user_data"]["current_page"]) {
+            console.log("Redirecting to ", result["user_data"]["current_page"])
             window.location.href = result["user_data"]["current_page"];
+
+        } else {
+            on_not_redirect();
         }
     });
 }
