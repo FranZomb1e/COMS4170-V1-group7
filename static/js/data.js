@@ -37,9 +37,6 @@ function check_quiz_from_user_data(on_success, on_fail) {
         });
     })
 }
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
 
 function redirect_if_not_new_user(on_not_redirect) {
     get_user_data(function (result) {
