@@ -47,7 +47,7 @@ $(document).ready(function() {
         drop: function (event, ui) {
             getUserAnswer(ui, 1);
             ui.draggable.draggable({disabled: true});
-            $('#stroke_1').click(function() {
+            $("#quiz-next-btn").click(function() {
                 window.location.href = "/quiz/" + (parseInt($(this).attr("data-current-id")) + 1);
             });
         }
