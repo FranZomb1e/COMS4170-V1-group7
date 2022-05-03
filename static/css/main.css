@@ -81,14 +81,11 @@ button:hover {
 }
 
 .quiz-buttons.selected {
-    background-color: #851513;
-    color: white;
+    background-color: #d6d6d6;
 }
 
 .quiz-buttons:hover {
-    color: white;
-    border-color: #851513;
-    background-color: #851513;
+    background-color: #d6d6d6;
 }
 
 .answer-field{
@@ -101,9 +98,7 @@ button:hover {
 }
 
 .ui-droppable-hover{
-    color: white;
-    border-color: #851513;
-    background-color: #851513;
+    background-color: #d6d6d6;
 }
 
 .dropped{
