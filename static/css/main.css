@@ -222,6 +222,11 @@ button:hover {
     padding: 3%;
 }
 
+#reset-btn {
+    margin-top: 2%;
+    margin-left: 4.5%;
+}
+
 #clear {
     position: absolute;
     left: 5%;
