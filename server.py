@@ -1,19 +1,17 @@
 import datetime
 import json
 
-from flask import Flask, session
+from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
+import threading
+
+sema = threading.Semaphore()
 
 app = Flask(__name__)
 
 app.secret_key = "123456"
-
-
-@app.before_request
-def session_permanent():
-    session.permanent = True
-
+saved_user_data = {}
 
 tutorial_data = {
     1: {"img": "learn_img.png", "title": "Eight Principles of Yong", "practice": False,
@@ -109,17 +107,24 @@ def check_answers():
 
 @app.route("/save_user_data", methods=['POST'])
 def save_user_data():
+    sema.acquire()
     user_data = request.json["user_data"]
-    if "user_data" not in session:
-        session["user_data"] = {}
     for k, v in user_data.items():
-        session["user_data"][k] = v
-    return json.dumps({"err": "ok"})
+        saved_user_data[k] = v
+        print(k,v)
+    result = json.dumps({"err": "ok", "user_data": saved_user_data})
+    print("save", result)
+    sema.release()
+    return result
 
 
 @app.route("/get_user_data", methods=['GET'])
 def get_user_data():
-    return json.dumps({"err": "ok", "user_data": session.get('user_data')})
+    sema.acquire()
+    result = json.dumps({"err": "ok", "user_data": saved_user_data})
+    print("get", result)
+    sema.release()
+    return result
 
 
 if __name__ == '__main__':

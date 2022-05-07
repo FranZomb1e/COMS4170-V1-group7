@@ -45,31 +45,13 @@ function redirect_if_not_new_user(on_not_redirect) {
             return;
         }
         if (result["user_data"]["current_page"]) {
-            console.log("Redirecting to ", result["user_data"]["current_page"])
+            console.log("Redirecting to ", result["user_data"]["current_page"]);
             window.location.href = result["user_data"]["current_page"];
 
         } else {
             on_not_redirect();
         }
     });
-}
-
-function check_answer(quiz_id, quiz_choice, on_success) {
-    $.ajax({
-        type: "POST",
-        url: "/check_answer",
-        dataType : "json",
-        contentType: "application/json; charset=utf-8",
-        data : JSON.stringify({'quiz_id': quiz_id, "quiz_choice": quiz_choice}),
-        success: function(result){
-            on_success(result);
-        },
-        error: function(request, status, error){
-            console.log("Error");
-            console.log(request);
-            console.log(status);
-            console.log(error);
-    }});
 }
 
 function check_answers(quiz_choices, on_success) {
@@ -116,6 +98,7 @@ function get_user_data(on_success) {
         dataType : "json",
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify({}),
+        cache: false,
         success: function(result){
             on_success(result);
         },
